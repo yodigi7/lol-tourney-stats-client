@@ -1,0 +1,19 @@
+<div>
+    <label>Name: </label>
+    <input [(ngModel)]="name" type="text">
+</div>
+<div>
+    <label>Provider ID: </label>
+    <input [(ngModel)]="providerId" type="number">
+</div>
+<div>
+    <button (click)="getTournamentId()">Get Tournament ID</button>
+</div>
+<div *ngIf="error">
+    <label>Error: </label>
+    {{error}}
+</div>
+<div *ngIf="tournamentId">
+    <label>Tournament ID: </label>
+    {{tournamentId}}
+</div>

@@ -1,0 +1,32 @@
+<div>
+    <label>Region: </label>
+    <select [(ngModel)]="region">
+        <option>NA</option>
+        <option>EUW</option>
+        <option>EUNE</option>
+        <option>PBE</option>
+        <option>KR</option>
+        <option>LAN</option>
+        <option>LAS</option>
+        <option>OCE</option>
+        <option>RU</option>
+        <option>TR</option>
+        <option>BR</option>
+        <option>JP</option>
+    </select>
+</div>
+<div>
+    <label>Callback URL: </label>
+    <input [(ngModel)]="url" size="30" type="text">
+</div>
+<div>
+    <button (click)="getTournamentProvider()">Call Service</button>
+</div>
+<div *ngIf="error">
+    <label>Error: </label>
+    {{error}}
+</div>
+<div *ngIf="providerId">
+    <label>Provider Id: </label>
+    {{providerId}}
+</div>

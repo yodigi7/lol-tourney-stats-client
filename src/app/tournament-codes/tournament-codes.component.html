@@ -1,0 +1,52 @@
+<div>
+    <label>Count: </label>
+    <input [(ngModel)]="count" type="number">
+</div>
+<div>
+    <label>Tournament ID: </label>
+    <input [(ngModel)]="tournamentId" type="number">
+</div>
+<div>
+    <label>Map Type: </label>
+    <select [(ngModel)]="mapType">
+        <option value="SUMMONERS_RIFT">Summoners Rift</option>
+        <option value="TWISTED_TREELINE">Twisted Treeline</option>
+        <option value="HOWLING_ABYSS">Howling Abyss</option>
+    </select>
+</div>
+<div>
+    <label>Metadata: </label>
+    <input [(ngModel)]="metadata" type="text">
+</div>
+<div>
+    <label>Pick Type: </label>
+    <select [(ngModel)]="pickType">
+        <option value="BLIND_PICK">Blind Pick</option>
+        <option value="DRAFT_MODE">Draft Mode</option>
+        <option value="ALL_RANDOM">All Random</option>
+        <option value="TOURNAMENT_DRAFT">Tournament Draft</option>
+    </select>
+</div>
+<div>
+    <label>Spectator Type: </label>
+    <select [(ngModel)]="spectatorType">
+        <option value="NONE">None</option>
+        <option value="LOBBY_ONLY">Lobby Only</option>
+        <option value="ALL">All</option>
+    </select>
+</div>
+<div>
+    <label>Team Size: </label>
+    <input [(ngModel)]="teamSize" type="number">
+</div>
+<div>
+    <button (click)="getTournamentCodes()">Get Tournament Codes</button>
+</div>
+<div *ngIf="error">
+    <label>Error: </label>
+    {{error}}
+</div>
+<div *ngIf="tournamentCodes">
+    <label>Tournament Codes: </label>
+    {{tournamentCodes}}
+</div>
