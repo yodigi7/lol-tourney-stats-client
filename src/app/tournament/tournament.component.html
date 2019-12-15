@@ -1,14 +1,13 @@
-<div>
-    <label>Name: </label>
-    <input [(ngModel)]="name" type="text">
-</div>
-<div>
-    <label>Provider ID: </label>
-    <input [(ngModel)]="providerId" type="number">
-</div>
-<div>
-    <button (click)="getTournamentId()">Get Tournament ID</button>
-</div>
+<h3>Tournament</h3>
+<form>
+    <mat-form-field>
+        <input matInput placeholder="Tourament Name" name="tournamentName" [(ngModel)]="name" type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Provider ID" name="providerId" [(ngModel)]="providerId" type="number">
+    </mat-form-field>
+    <button mat-raised-button (click)="getTournamentId()">Create Tournament</button>
+</form>
 <div *ngIf="error">
     <label>Error: </label>
     {{error}}

@@ -1,52 +1,51 @@
 <div>
-    <label>Count: </label>
-    <input [(ngModel)]="count" type="number">
-</div>
-<div>
-    <label>Tournament ID: </label>
-    <input [(ngModel)]="tournamentId" type="number">
-</div>
-<div>
-    <label>Map Type: </label>
-    <select [(ngModel)]="mapType">
-        <option value="SUMMONERS_RIFT">Summoners Rift</option>
-        <option value="TWISTED_TREELINE">Twisted Treeline</option>
-        <option value="HOWLING_ABYSS">Howling Abyss</option>
-    </select>
-</div>
-<div>
-    <label>Metadata: </label>
-    <input [(ngModel)]="metadata" type="text">
-</div>
-<div>
-    <label>Pick Type: </label>
-    <select [(ngModel)]="pickType">
-        <option value="BLIND_PICK">Blind Pick</option>
-        <option value="DRAFT_MODE">Draft Mode</option>
-        <option value="ALL_RANDOM">All Random</option>
-        <option value="TOURNAMENT_DRAFT">Tournament Draft</option>
-    </select>
-</div>
-<div>
-    <label>Spectator Type: </label>
-    <select [(ngModel)]="spectatorType">
-        <option value="NONE">None</option>
-        <option value="LOBBY_ONLY">Lobby Only</option>
-        <option value="ALL">All</option>
-    </select>
-</div>
-<div>
-    <label>Team Size: </label>
-    <input [(ngModel)]="teamSize" type="number">
-</div>
-<div>
-    <button (click)="getTournamentCodes()">Get Tournament Codes</button>
-</div>
-<div *ngIf="error">
-    <label>Error: </label>
-    {{error}}
-</div>
-<div *ngIf="tournamentCodes">
-    <label>Tournament Codes: </label>
-    {{tournamentCodes}}
+    <h3>Tournament Codes</h3>
+    <form>
+        <mat-form-field>
+            <input matInput name="count" placeholder="Count" [(ngModel)]="count" type="number">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Tournament ID" name="tournamentId" [(ngModel)]="tournamentId" type="number">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Map Type: </mat-label>
+            <mat-select name="mapType" [(ngModel)]="mapType">
+                <mat-option value="SUMMONERS_RIFT">Summoners Rift</mat-option>
+                <mat-option value="TWISTED_TREELINE">Twisted Treeline</mat-option>
+                <mat-option value="HOWLING_ABYSS">Howling Abyss</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="metadata" placeholder="Metadata" [(ngModel)]="metadata" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Pick Type: </mat-label>
+            <mat-select name="pickType" [(ngModel)]="pickType">
+                <mat-option value="BLIND_PICK">Blind Pick</mat-option>
+                <mat-option value="DRAFT_MODE">Draft Mode</mat-option>
+                <mat-option value="ALL_RANDOM">All Random</mat-option>
+                <mat-option value="TOURNAMENT_DRAFT">Tournament Draft</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Spectator Type</mat-label>
+            <mat-select name="spectatorType" [(ngModel)]="spectatorType">
+                <mat-option value="NONE">None</mat-option>
+                <mat-option value="LOBBY_ONLY">Lobby Only</mat-option>
+                <mat-option value="ALL">All</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="teamSize" placeholder="Team Size" [(ngModel)]="teamSize" type="number">
+        </mat-form-field>
+        <button mat-raised-button (click)="getTournamentCodes()">Create Tournament Codes</button>
+    </form>
+    <div *ngIf="error">
+        <label>Error: </label>
+        {{error}}
+    </div>
+    <div *ngIf="tournamentCodes">
+        <label>Tournament Codes: </label>
+        {{tournamentCodes}}
+    </div>
 </div>
