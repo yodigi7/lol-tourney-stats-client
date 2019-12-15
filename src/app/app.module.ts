@@ -12,6 +12,9 @@ import { HeaderComponent } from './header/header.component';
 import { TournamentProviderComponent } from './tournament-provider/tournament-provider.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { TournamentCodesComponent } from './tournament-codes/tournament-codes.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { TournamentCodesComponent } from './tournament-codes/tournament-codes.co
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
