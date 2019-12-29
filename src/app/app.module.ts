@@ -14,6 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { CreateTournamentComponent } from './create-tournament/create-tournament.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatButtonModule,
     MatSelectModule,
     MatStepperModule,
+    MatToolbarModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
