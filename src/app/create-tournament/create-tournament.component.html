@@ -1,0 +1,121 @@
+<mat-horizontal-stepper [linear]="false" #stepper>
+  <mat-step [stepControl]="tournamentProvider">
+    <form [formGroup]="tournamentProvider">
+      <div class="or">
+        <ng-template matStepLabel>Tournament Provider</ng-template>
+        <div>
+            <mat-form-field>
+                <mat-label>Region</mat-label>
+                <mat-select formControlName="region" name="Region">
+                    <mat-option value="NA">NA</mat-option>
+                    <mat-option value="EUW">EUW</mat-option>
+                    <mat-option value="EUNE">EUNE</mat-option>
+                    <mat-option value="KR">KR</mat-option>
+                    <mat-option value="LAN">LAN</mat-option>
+                    <mat-option value="LAS">LAS</mat-option>
+                    <mat-option value="OCE">OCE</mat-option>
+                    <mat-option value="RU">RU</mat-option>
+                    <mat-option value="TR">TR</mat-option>
+                    <mat-option value="BR">BR</mat-option>
+                    <mat-option value="JP">JP</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Callback URL" formControlName="callbackURL">
+            </mat-form-field>
+        </div>
+        <span>OR:</span>
+        <mat-form-field>
+            <input type="number" matInput placeholder="Tournament Provider ID" formControlName="tournamentProvider">
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button (click)="sync()" matStepperNext>Next</button>
+        <button mat-raised-button matStepperNext>Skip</button>
+        <button mat-raised-button (click)="getTournamentProvider()">Execute</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="tournament">
+    <form [formGroup]="tournament">
+      <div class="or">
+        <ng-template matStepLabel>Tournament ID</ng-template>
+        <div>
+            <mat-form-field>
+                <input matInput type="number" placeholder="Provider ID" formControlName="providerId">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Tournament Name" formControlName="tournamentName">
+            </mat-form-field>
+        </div>
+        <span>OR:</span>
+        <mat-form-field>
+            <input matInput type="number" placeholder="Tournament ID" formControlName="tournamentId">
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button (click)="sync()" matStepperNext>Next</button>
+        <button mat-raised-button matStepperNext>Skip</button>
+        <button mat-raised-button (click)="getTournamentId()">Execute</button>
+        <button mat-raised-button matStepperPrevious>Back</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="tournamentCodesGroup">
+    <form [formGroup]="tournamentCodesGroup">
+      <div class="threeWide">
+        <ng-template matStepLabel>Tournament Codes</ng-template>
+        <mat-form-field>
+            <input matInput type="number" placeholder="Tournament ID" formControlName="tournamentId">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="Count" formControlName="count">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Map Type:</mat-label>
+            <mat-select formControlName="mapType">
+            <mat-option value="SUMMONERS_RIFT">Summoners Rift</mat-option>
+            <mat-option value="TWISTED_TREELINE">Twisted Treeline</mat-option>
+            <mat-option value="HOWLING_ABYSS">Howling Abyss</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Metadata" formControlName="metadata" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Pick Type:</mat-label>
+            <mat-select formControlName="pickType">
+            <mat-option value="BLIND_PICK">Blind Pick</mat-option>
+            <mat-option value="DRAFT_MODE">Draft Mode</mat-option>
+            <mat-option value="ALL_RANDOM">All Random</mat-option>
+            <mat-option value="TOURNAMENT_DRAFT">Tournament Draft</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Spectator Type</mat-label>
+            <mat-select formControlName="spectatorType">
+            <mat-option value="NONE">None</mat-option>
+            <mat-option value="LOBBYONLY">Lobby Only</mat-option>
+            <mat-option value="ALL">All</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Team Size" formControlName="teamSize" type="number">
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button (click)="sync()" matStepperNext>Next</button>
+        <button mat-raised-button (click)="getCodes()">Execute</button>
+        <button mat-raised-button matStepperPrevious>Back</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
+
+<div>
+  <span>Tournament Provider: {{providerId}}</span>
+  <br>
+  <span>Tournament ID: {{tournamentId}}</span>
+  <br>
+  <span>Tournament Codes: {{tournamentCodes}}</span>
+</div>

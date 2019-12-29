@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { CreateTournamentBody, CreateTournamentCodesBody, CreateTournamentProviderBody } from './body-interfaces';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,29 +13,51 @@ export class RiotService {
 
   constructor(private http: HttpClient) { }
 
-  createTournament(body) {
+  generateError(message: string): Observable<any> {
+    return of({ err: message });
+  }
+
+  createTournament(body: CreateTournamentBody): Observable<any> {
     if (!this.apikey) {
-      window.alert("Apikey hasn't been set!");
-      return;
+      return this.generateError('Apikey hasn\'t been set!');
     }
     body.apikey = this.apikey;
     console.log(body);
     return this.http.post(environment.baseUrl + 'tournament', body);
   }
 
-  createTournamentCodes(body) {
+  createTournamentCodes(body: CreateTournamentCodesBody): Observable<any> {
     if (!this.apikey) {
-      window.alert("Apikey hasn't been set!");
-      return;
+      return this.generateError('Apikey hasn\'t been set!');
+    }
+    if (!body.count) {
+      return this.generateError('Count must be set!');
+    }
+    if (!body.mapType) {
+      return this.generateError('Map type must be set!');
+    }
+    if (!body.pickType) {
+      return this.generateError('Pick type must be set!');
+    }
+    if (!body.spectatorType) {
+      return this.generateError('Specatator type must be set!');
+    }
+    if (!body.tournamentId) {
+      return this.generateError('Tournament ID must be set!');
     }
     body.apikey = this.apikey;
     return this.http.post(environment.baseUrl + 'tournament-codes', body);
   }
 
-  createTournamentProvider(body) {
+  createTournamentProvider(body: CreateTournamentProviderBody): Observable<any> {
     if (!this.apikey) {
-      window.alert("Apikey hasn't been set!");
-      return;
+      return this.generateError('Apikey hasn\'t been set!');
+    }
+    if (!body.region) {
+      return this.generateError('Region hasn\'t been set!');
+    }
+    if (!body.url) {
+      return this.generateError('Callback URL hasn\'t been set!');
     }
     body.apikey = this.apikey;
     return this.http.post(environment.baseUrl + 'tournament-provider', body);

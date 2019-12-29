@@ -5,38 +5,35 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApikeyComponent } from './apikey/apikey.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
-import { TournamentProviderComponent } from './tournament-provider/tournament-provider.component';
-import { TournamentComponent } from './tournament/tournament.component';
-import { TournamentCodesComponent } from './tournament-codes/tournament-codes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import { CreateTournamentComponent } from './create-tournament/create-tournament.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
     AppComponent,
     ApikeyComponent,
     HomeComponent,
-    MainComponent,
     HeaderComponent,
-    TournamentProviderComponent,
-    TournamentComponent,
-    TournamentCodesComponent
+    CreateTournamentComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatStepperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

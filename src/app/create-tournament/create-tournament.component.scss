@@ -1,0 +1,25 @@
+.or {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    
+    mat-form-field {
+        display: block;
+    }
+}
+
+.threeWide {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    mat-form-field {
+        padding: 0 1em;
+    }
+}
+
+div {
+    button {
+        float: right;
+    }
+}
