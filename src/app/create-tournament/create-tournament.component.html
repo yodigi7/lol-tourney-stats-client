@@ -1,32 +1,26 @@
 <mat-horizontal-stepper [linear]="false" #stepper>
   <mat-step [stepControl]="tournamentProvider">
     <form [formGroup]="tournamentProvider">
-      <div class="or">
+      <div class="threeWide">
         <ng-template matStepLabel>Tournament Provider</ng-template>
-        <div>
-            <mat-form-field>
-                <mat-label>Region</mat-label>
-                <mat-select formControlName="region" name="Region">
-                    <mat-option value="NA">NA</mat-option>
-                    <mat-option value="EUW">EUW</mat-option>
-                    <mat-option value="EUNE">EUNE</mat-option>
-                    <mat-option value="KR">KR</mat-option>
-                    <mat-option value="LAN">LAN</mat-option>
-                    <mat-option value="LAS">LAS</mat-option>
-                    <mat-option value="OCE">OCE</mat-option>
-                    <mat-option value="RU">RU</mat-option>
-                    <mat-option value="TR">TR</mat-option>
-                    <mat-option value="BR">BR</mat-option>
-                    <mat-option value="JP">JP</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Callback URL" formControlName="callbackURL">
-            </mat-form-field>
-        </div>
-        <span>OR:</span>
         <mat-form-field>
-            <input type="number" matInput placeholder="Tournament Provider ID" formControlName="tournamentProvider">
+            <mat-label>Region</mat-label>
+            <mat-select formControlName="region" name="Region">
+                <mat-option value="NA">NA</mat-option>
+                <mat-option value="EUW">EUW</mat-option>
+                <mat-option value="EUNE">EUNE</mat-option>
+                <mat-option value="KR">KR</mat-option>
+                <mat-option value="LAN">LAN</mat-option>
+                <mat-option value="LAS">LAS</mat-option>
+                <mat-option value="OCE">OCE</mat-option>
+                <mat-option value="RU">RU</mat-option>
+                <mat-option value="TR">TR</mat-option>
+                <mat-option value="BR">BR</mat-option>
+                <mat-option value="JP">JP</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Callback URL" formControlName="callbackURL">
         </mat-form-field>
       </div>
       <div>
@@ -38,19 +32,13 @@
   </mat-step>
   <mat-step [stepControl]="tournament">
     <form [formGroup]="tournament">
-      <div class="or">
+      <div class="threeWide">
         <ng-template matStepLabel>Tournament ID</ng-template>
-        <div>
-            <mat-form-field>
-                <input matInput type="number" placeholder="Provider ID" formControlName="providerId">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Tournament Name" formControlName="tournamentName">
-            </mat-form-field>
-        </div>
-        <span>OR:</span>
         <mat-form-field>
-            <input matInput type="number" placeholder="Tournament ID" formControlName="tournamentId">
+            <input matInput type="number" placeholder="Provider ID" formControlName="providerId">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Tournament Name" formControlName="tournamentName">
         </mat-form-field>
       </div>
       <div>
@@ -113,6 +101,7 @@
 </mat-horizontal-stepper>
 
 <div>
+  <h2>Generated:</h2>
   <span>Tournament Provider: {{providerId}}</span>
   <br>
   <span>Tournament ID: {{tournamentId}}</span>
