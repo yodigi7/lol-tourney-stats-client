@@ -1,0 +1,22 @@
+<div>
+    <form (ngSubmit)="submitMatchIds()">
+        <mat-form-field>
+            <textarea matInput [(ngModel)]="matchIdsText" (ngModelChange)="sanitizeMatchIds()" name="matchIds" placeholder="Match IDs"></textarea>
+        </mat-form-field>
+        <span *ngIf="retrievingMatchIds">
+            <mat-progress-bar style="width: 100%;" mode="indeterminate"></mat-progress-bar>
+        </span>
+        <button type="submit" mat-raised-button>Submit</button>
+    </form>
+    <span>OR</span>
+    <form (ngSubmit)="submitTournamentCodes()">
+        Still in development
+        <mat-form-field>
+            <textarea matInput [(ngModel)]="tournamentCodesText" (ngModelChange)="sanitizeTournamentCodes()" name="tournamentCodes" placeholder="Tournament IDs"></textarea>
+        </mat-form-field>
+        <span *ngIf="retrievingTournamentCodes">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </span>
+        <button disabled type="submit" mat-raised-button>Submit</button>
+    </form>
+</div>

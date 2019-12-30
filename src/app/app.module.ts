@@ -16,6 +16,8 @@ import { CreateTournamentComponent } from './create-tournament/create-tournament
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
+import { GetStatsComponent } from './get-stats/get-stats.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {MatDividerModule} from '@angular/material/divider';
     ApikeyComponent,
     HomeComponent,
     HeaderComponent,
-    CreateTournamentComponent
+    CreateTournamentComponent,
+    GetStatsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatStepperModule,
     MatToolbarModule,
     MatDividerModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

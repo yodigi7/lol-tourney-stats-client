@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { CreateTournamentBody, CreateTournamentCodesBody, CreateTournamentProviderBody } from './body-interfaces';
+import { CreateTournamentBody, CreateTournamentCodesBody, CreateTournamentProviderBody, GetStatsBody } from './body-interfaces';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -61,5 +61,16 @@ export class RiotService {
     }
     body.apikey = this.apikey;
     return this.http.post(environment.baseUrl + 'tournament-provider', body);
+  }
+
+  getStats(body: GetStatsBody): Observable<any> {
+    if (!this.apikey) {
+      return this.generateError('Apikey hasn\'t been set!');
+    }
+    if (!body.ids.length) {
+      return this.generateError('No ids provided!');
+    }
+    body.apikey = this.apikey;
+    return this.http.post(environment.baseUrl + 'get-stats', body);
   }
 }

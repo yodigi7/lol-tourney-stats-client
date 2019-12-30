@@ -1,0 +1,20 @@
+div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+
+    span {
+        padding-top: 2em;
+    }
+}
+
+form {
+    mat-form-field {
+        padding: 0 1em;
+        display: block;
+
+        textarea {
+            height: 7em;
+        }
+    }
+}

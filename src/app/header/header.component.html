@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
     <h1><a [routerLink]="['']">RIOT Tournament Client</a></h1>
-    <mat-divider [vertical]="true" style="height: 100%;"></mat-divider>
+    <mat-divider [vertical]="true"></mat-divider>
     <h4><a [routerLink]="['/create-tournament']">Create Tournament</a></h4>
+    <h4><a [routerLink]="['/get-stats']">Generate Stats</a></h4>
     <div>
         <app-apikey></app-apikey>
     </div>

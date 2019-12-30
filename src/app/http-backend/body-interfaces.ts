@@ -2,6 +2,15 @@ interface BackendBody {
     apikey?: string;
 }
 
+interface ID {
+    matchId?: string;
+    tournamentCode?: string;
+}
+
+export interface GetStatsBody extends BackendBody {
+    ids: Array<ID>;
+}
+
 export interface CreateTournamentBody extends BackendBody {
     name: string;
     providerId: number;
