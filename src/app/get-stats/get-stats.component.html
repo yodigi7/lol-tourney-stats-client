@@ -10,13 +10,14 @@
     </form>
     <span>OR</span>
     <form (ngSubmit)="submitTournamentCodes()">
-        Still in development
+        Still in Development | Not Verified Working
         <mat-form-field>
             <textarea matInput [(ngModel)]="tournamentCodesText" (ngModelChange)="sanitizeTournamentCodes()" name="tournamentCodes" placeholder="Tournament IDs"></textarea>
         </mat-form-field>
         <span *ngIf="retrievingTournamentCodes">
             <mat-progress-bar mode="indeterminate"></mat-progress-bar>
         </span>
-        <button disabled type="submit" mat-raised-button>Submit</button>
+        <button type="submit" mat-raised-button>Submit</button>
+        <h5>Notes: must use API Key that generated the codes</h5>
     </form>
 </div>

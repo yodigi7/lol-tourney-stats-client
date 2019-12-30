@@ -27,9 +27,15 @@ export class GetStatsComponent implements OnInit {
       ids: this.matchIds.map(matchId => {
         return { "matchId" : matchId };
       })
-    }).subscribe(stats => {
-      this.stats = stats.stats;
-      this.saveExcelFile();
+    }).subscribe(resp => {
+      if (resp.status) {
+        window.alert(`RIOT Error: ${resp.status.message}`);
+      } else if (resp.err) {
+        window.alert(resp.err);
+      } else {
+        this.stats = resp.stats;
+        this.saveExcelFile();
+      }
       this.retrievingMatchIds = false;
     });
   }
@@ -48,10 +54,15 @@ export class GetStatsComponent implements OnInit {
       ids: this.tournamentCodes.map(tournamentCode => {
         return { "tournamentCode" : tournamentCode };
       })
-    }).subscribe(stats => {
-      this.stats = stats.stats;
-      console.log(stats);
-      this.saveExcelFile();
+    }).subscribe(resp => {
+      if (resp.status) {
+        window.alert(`RIOT Error: ${resp.status.message}`);
+      } else if (resp.err) {
+        window.alert(resp.err);
+      } else {
+        this.stats = resp.stats;
+        this.saveExcelFile();
+      }
       this.retrievingTournamentCodes = false;
     })
   }
@@ -65,12 +76,12 @@ export class GetStatsComponent implements OnInit {
   }
 
   saveExcelFile() {
-    const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';  
+    const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
     const EXCEL_EXTENSION = '.xlsx';
     const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.stats);
     const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
     const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-    const data: Blob = new Blob([excelBuffer], {type: EXCEL_TYPE});  
+    const data: Blob = new Blob([excelBuffer], {type: EXCEL_TYPE});
     FileSaver.saveAs(data, 'sample' + '_export_' + new  Date().getTime() + EXCEL_EXTENSION);
   }
 }
